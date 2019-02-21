@@ -1,28 +1,31 @@
 from collections import Counter
-def Ccount(f):
-    f = open(f,"r")
+import os
+
+
+def charcount(lfile):
+    f = open(lfile, "r")
     ccount = 0
     line = f.readline()
     while line != "":
-            ccount= ccount + len(line)
-            line = f.readline()
+        ccount = ccount + len(line)
+        line = f.readline()
     f.close()
-    
-    print "ccount= ", ccount
+    print("Character count =", ccount)
 
-def Lcount(g):
-    g = open(g,"r")
+
+def lcount(filename):
+    g = open(filename, "r")
     linecount = 0
     line = g.readline()
     while line != "":
             linecount = linecount + 1
             line = g.readline()
     g.close()
-    print linecount
+    print("Line count =", linecount)
 
 
-def Wcount(h):
-    h = open(h,"r")
+def wcount(filename):
+    h = open(filename, "r")
     wordcount = 0
     line = h.readline()
     while line != "":
@@ -31,10 +34,10 @@ def Wcount(h):
                 wordcount = wordcount + 1
             line = h.readline()
     h.close()
-    print wordcount
+    print("Word count =", wordcount)
 
 
-def Ocount(i,anyword):
+def freqcount(i,anyword):
     mylist = []
     i = open(i,"r")
     linelist = i.read().lower().split()
@@ -47,5 +50,11 @@ def Ocount(i,anyword):
             counts = Counter(mylist)
     i.close
     mylist.append(eachw)
-    specifics = counts [anyword]
-    print specifics
+    specifics = counts[anyword]
+    print("The word", anyword, "occurs", specifics, "times.")
+
+
+charcount("filename")
+lcount("filename")
+wcount("filename")
+freqcount("filename","word")
