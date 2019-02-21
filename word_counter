@@ -8,4 +8,4 @@ def word_count(filename):
                 wordcount = wordcount + 1
             line = h.readline()
     h.close()
-    print ("Word count", wordcount)
+    print ("Word count =", wordcount)
